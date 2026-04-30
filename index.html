@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snapd - צילום אירועים ומגנטים</title>
+    <title>Snapped - צילום אירועים ומגנטים</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-dark: #0f1a2a;
-            --accent-blue: #a8d8f8;
-            --card-bg: #1a2a3d;
-            --text-light: #ffffff;
+            --bg-dark: #0d0d0d;
+            --accent-elegant: #e9dcb7; /* הגוון החדש והמעודן */
+            --card-bg: #1a1410;
+            --text-light: #f5f0ea;
             --transition: all 0.3s ease;
         }
 
@@ -33,53 +33,29 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(15, 26, 42, 0.8), rgba(15, 26, 42, 0.8)), url('hero-bg.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 0.9)), url('hero-bg.jpg') center/cover no-repeat;
             padding: 0 20px;
         }
 
-        .logo-img {
-            width: 120px;
-            margin-bottom: 15px;
-        }
+        .logo-img { width: 150px; margin-bottom: 15px; }
 
-        h1 {
-            font-size: clamp(3.5rem, 10vw, 5.5rem);
-            margin: 0;
-            color: var(--accent-blue);
-            font-weight: 700;
-        }
+        h1 { font-size: clamp(3.5rem, 10vw, 5.5rem); margin: 0; color: var(--accent-elegant); font-weight: 700; }
+        .hero p { font-size: 1.5rem; margin-bottom: 30px; opacity: 0.9; }
 
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .quick-links {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .quick-link {
-            color: var(--text-light);
+        .quick-links { display: flex; gap: 20px; margin-bottom: 40px; flex-wrap: wrap; justify-content: center; }
+        .quick-link { 
+            color: var(--text-light); 
             text-decoration: none;
-            font-size: 1.1rem;
-            border-bottom: 1px solid var(--accent-blue);
-            padding-bottom: 4px;
-            transition: var(--transition);
+            font-size: 1.1rem; 
+            border-bottom: 1px solid var(--accent-elegant); 
+            padding-bottom: 4px; 
+            transition: var(--transition); 
         }
-
-        .quick-link:hover {
-            color: var(--accent-blue);
-            transform: translateY(-2px);
-        }
+        .quick-link:hover { color: var(--accent-elegant); transform: translateY(-2px); }
 
         .btn {
             padding: 15px 45px;
-            background: var(--accent-blue);
+            background: var(--accent-elegant);
             color: var(--bg-dark);
             border: none;
             cursor: pointer;
@@ -89,136 +65,86 @@
             font-size: 1.2rem;
             transition: var(--transition);
         }
+        .btn:hover { background: #ffffff; box-shadow: 0 0 20px rgba(233, 220, 183, 0.3); }
 
-        .btn:hover {
-            background: #ffffff;
-            box-shadow: 0 0 20px rgba(168, 216, 248, 0.4);
-        }
-
-        /* Floating WhatsApp Button - Clean Style */
+        /* Floating WhatsApp */
         .floating-wa {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            background: #25d366;
-            width: 60px;
-            height: 60px;
+            position: fixed; bottom: 25px; left: 25px; background: #25d366;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 1000; transition: var(--transition);
+        }
+        .floating-wa:hover { transform: scale(1.1); }
+        .floating-wa svg { width: 32px; height: 32px; fill: white; }
+
+        section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; text-align: center; }
+        h2 { font-size: 2.5rem; margin-bottom: 30px; color: var(--accent-elegant); }
+
+        /* Photographers Section */
+        .photographers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .photographer-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(233, 220, 183, 0.1);
+        }
+        .profile-img {
+            width: 150px; height: 150px;
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            z-index: 1000;
-            transition: var(--transition);
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--accent-elegant);
         }
-        
-        .floating-wa:hover {
-            transform: scale(1.1);
-        }
+        .photographer-card h3 { color: var(--accent-elegant); margin: 10px 0; }
 
-        .floating-wa svg {
-            width: 32px;
-            height: 32px;
-            fill: white;
-        }
-
-        section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            color: var(--accent-blue);
-        }
-
-        .about-text {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.3rem;
-            line-height: 1.8;
-        }
-
-        /* Services Grid - Matches your style */
+        /* Services */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            margin-top: 40px;
+            margin: 40px 0;
         }
-
         .service-card {
             background: var(--card-bg);
-            padding: 40px 25px;
+            padding: 35px 25px;
             border-radius: 10px;
-            border: 1px solid rgba(168, 216, 248, 0.1);
-            transition: var(--transition);
+            border: 1px solid rgba(233, 220, 183, 0.1);
         }
+        .service-card h3 { color: var(--accent-elegant); margin-bottom: 15px; }
 
-        .service-card h3 {
-            color: var(--accent-blue);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
+        /* Gallery Structure (Restored) */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
-            margin-top: 50px;
+            margin-top: 40px;
         }
+        .gallery-item { border-radius: 8px; overflow: hidden; aspect-ratio: 1/1; }
+        .gallery img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
 
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            aspect-ratio: 1/1;
-            border: 1px solid rgba(168, 216, 248, 0.1);
-        }
+        .fade { opacity: 0; transform: translateY(30px); transition: 0.8s all ease-out; }
+        .fade.show { opacity: 1; transform: translateY(0); }
 
-        .gallery img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .fade {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.8s all ease-out;
-        }
-
-        .fade.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        footer {
-            padding: 40px;
-            text-align: center;
-            border-top: 1px solid rgba(168, 216, 248, 0.1);
-            opacity: 0.7;
-        }
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(233, 220, 183, 0.1); opacity: 0.7; }
     </style>
 </head>
 
 <body>
 
-<a href="https://wa.me/972522786690" class="floating-wa" target="_blank" aria-label="WhatsApp">
+<a href="https://wa.me/972522786690" class="floating-wa" target="_blank">
     <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.1 0-65.6-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.4-11.2 2.5-2.4 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.2 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.5 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
 </a>
 
 <header class="hero">
-    <img src="logo.png" alt="Snapd Logo" class="logo-img">
-    <h1>Snapd</h1>
-    <p>לוכדים את הרגע, מדפיסים את הזיכרון</p>
+    <img src="maim photos/logo.png" alt="Snapped Logo" class="logo-img">
+    <h1>Snapped</h1>
+    <p>לוכדים רגעים, מדפיסים זיכרונות</p>
     
     <div class="quick-links">
         <a href="#about" class="quick-link">מי אנחנו?</a>
@@ -231,33 +157,53 @@
 
 <section id="about" class="fade">
     <h2>קצת עלינו</h2>
-    <div class="about-text">
-        <p>אנחנו ב-Snapd מאמינים שצילום הוא לא רק לחיצה על כפתור, אלא היכולת להקפיא רגע בזמן ולהפוך אותו לזיכרון מוחשי. כצוות של יוצרים צעירים, אנחנו מביאים איתנו אנרגיה חדשה, ציוד מתקדם ועין חדה לפרטים הקטנים שעושים את ההבדל הגדול.</p>
+    <div style="max-width: 800px; margin: 0 auto; font-size: 1.25rem;">
+        <p>אנחנו נתנאל ורועי.</p>
+        <p>מצלמים ומתעדים אירועים - בר מצווה, ימי הולדת ואירועים עסקיים.</p>
+        <p>מגיעים, עובדים, ותופסים את הרגעים כמו שהם - בלי יותר מדי דיבורים.</p>
+        <p>תוך כדי האירוע התמונות מודפסות למגנטים, ובסוף נשאר זיכרון שאנשים באמת לוקחים איתם הביתה.</p>
+    </div>
+</section>
+
+<section id="team" class="fade">
+    <h2>הצלמים שלנו</h2>
+    <div class="photographers-grid">
+        <div class="photographer-card">
+            <img src="maim photos/netanel.jpeg" alt="נתנאל" class="profile-img">
+            <h3>נתנאל</h3>
+            <p>צייד של רגעים ספונטניים. האיש שיתפוס אתכם בדיוק כשיצאתם הכי יפים, גם בלי ששמתם לב.</p>
+        </div>
+        <div class="photographer-card">
+            <img src="maim photos/roi.jpeg" alt="רועי" class="profile-img">
+            <h3>רועי</h3>
+            <p>האחראי על האווירה והחיוכים. דואג שהקצב יהיה גבוה ושהמגנטים יחכו לכם מוכנים בזמן.</p>
+        </div>
     </div>
 </section>
 
 <section id="services" class="fade">
+    <p style="color: var(--accent-elegant); font-weight: bold; margin-bottom: 10px;">השירות שלנו</p>
     <h2>פתרונות ויזואליים</h2>
     <div class="services-grid">
         <div class="service-card">
             <h3>תיעוד אירועים</h3>
-            <p>תיעוד מקצועי של חתונות, אירועים עסקיים ואירועי בוטיק עם דגש על רגעי השיא.</p>
+            <p>תיעוד מקצועי של בר מצווה, אירוע עסקי ואירוע בוטיק עם דגש על רגעי השיא.</p>
         </div>
         <div class="service-card">
             <h3>מגנטים לאירועים</h3>
-            <p>הדפסה תרמית איכותית עם ציפוי למינציה עמיד שנשמר לאורך שנים ללא דהייה.</p>
+            <p>הדפסה איכותית עם ציפוי למינציה עמיד שנשמר לאורך שנים ללא דהייה.</p>
         </div>
         <div class="service-card">
             <h3>עריכת תוכן וידאו</h3>
             <p>יצירת סרטוני היילייטס וקליפים ערוכים בסטנדרט גבוה המותאמים לרשתות החברתיות.</p>
         </div>
     </div>
+    <p style="font-style: italic; opacity: 0.8;">בלי יותר מדי דיבורים. באים, מצלמים, ומוציאים תוצאה טובה.</p>
 </section>
 
 <section id="gallery" class="fade">
     <h2>מה הפקנו לאחרונה?</h2>
     <div class="gallery">
-        <!-- 12 תמונות מתיקיית pics -->
         <div class="gallery-item"><img src="pics/img1.jpg" alt="עבודה"></div>
         <div class="gallery-item"><img src="pics/img2.jpg" alt="עבודה"></div>
         <div class="gallery-item"><img src="pics/img3.jpg" alt="עבודה"></div>
@@ -275,24 +221,21 @@
 
 <section id="contact" class="fade">
     <h2>יצירת קשר</h2>
-    <p>זמינים עבורכם לכל שאלה, אירוע או סשן צילומים.</p>
-    <div style="font-size: 2.5rem; color: var(--accent-blue); margin: 20px 0; font-weight: bold;">052-278-6690</div>
+    <p>רוצים לסגור תאריך או לשאול משהו? דברו איתנו.</p>
+    <div style="font-size: 2.5rem; color: var(--accent-elegant); margin: 20px 0; font-weight: bold;">052-278-6690</div>
     <a class="btn" href="https://wa.me/972522786690?text=שלום%20ראיתי%20את%20האתר%20ואני%20מעוניין%20בפרטים" target="_blank">שליחת הודעה עכשיו</a>
 </section>
 
 <footer>
-    <p>&copy; 2026 Snapd Photography | מעצבים זיכרונות</p>
+    <p>&copy; 2026 Snapped Photography | מעצבים זיכרונות</p>
 </footer>
 
 <script>
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('show');
         });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 </script>
 
